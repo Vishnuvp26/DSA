@@ -3,13 +3,13 @@ class Node {
         this.value = value;
         this.next = null;
     }
-}
+};
 
 class Stack {
     constructor() {
         this.top = null;
         this.size = 0;
-    }
+    };
 
     push(value) {
         const node = new Node(value);
@@ -18,7 +18,7 @@ class Stack {
         }
         this.top = node;
         this.size++;
-    }
+    };
 
     pop() {
         if (!this.top) {
@@ -28,7 +28,7 @@ class Stack {
         this.top = this.top.next;
         this.size--;
         return poppedNode.value;
-    }
+    };
 
     // Peek: Return the top element without removing it
     peek() {
@@ -36,15 +36,15 @@ class Stack {
             return "Stack is empty";
         }
         return this.top.value;
-    }
+    };
 
     isEmpty() {
         return this.size === 0;
-    }
+    };
     
     size() {
         return this.size;
-    }
+    };
 }
 
 const stack = new Stack();

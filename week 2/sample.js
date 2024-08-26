@@ -1,45 +1,69 @@
-class Queue {
+class Stack {
     constructor() {
-        this.items = [];
+        this.items = []; // empty array to store stack elements
     }
-    
+
     isEmpty() {
-        return this.items.length == 0
+        return this.items.length === 0;
     }
-    
-    enqueue(element){
-        this.items.push(element)
-    }
-    
-    dequeue(){
-        return this.items.shift()
-    }
-    
-    peek(){
-        if(!this.isEmpty()){
-            return this.items[0]
-        }
-        return null
-    }
-    
-    size(){
+
+    size() {
         return this.items.length;
     }
-    
-    print(){
-        console.log(this.items.toString());
+
+    push(element) {
+        this.items.push(element)
     }
-    
+
+    pop() {
+        if (this.isEmpty()) {
+            return "stack is empty";
+        }
+        return this.items.pop()
+    }
+
+    peek() {
+        if (this.isEmpty()) {
+            return "stack is empty"
+        }
+        return this.items[this.items.length - 1];
+    }
+
+    removeIndex(index) {
+        if(index < 0 || index >= this.size()) {
+            return false;
+        }
+        
+        const tempStack = new Stack();
+        const target = this.size() - index - 1;
+        
+        for(let i = 0; i < target; i++) {
+            tempStack.push(this.pop());
+        }
+        this.pop(); // Remove the element at the target index
+        
+        while(!tempStack.isEmpty()) {
+            this.push(tempStack.pop());
+        }
+    }
+
+    print() {
+        console.log(this.items.toString());
+    }        
+
 };
 
-const queue = new Queue();
-    
-console.log('enqueue: added to tail')
-queue.enqueue(40)
-queue.enqueue(20)
-queue.enqueue(90)
-queue.print();
-console.log('queue size: ' + queue.size());
-console.log('peek: ' + queue.peek());
+const stack = new Stack();
 
-console.log('dequeue: remove from front: ' + queue.dequeue());
+console.log('Push...')
+stack.push(80);
+stack.push(40);
+stack.push(50);
+stack.push(10);
+stack.print();
+
+console.log('peek...')
+console.log(stack.peek());
+
+stack.removeIndex(2);
+stack.print();
