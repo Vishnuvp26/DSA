@@ -145,7 +145,7 @@ class LinkedList {
             prev = current;        // Move prev and current one step forward
             current = next;
         }
-        this.head = prev;  // Update the head to the new first node
+        this.head = prev;// Update the head to the new first node
     }
 }
 

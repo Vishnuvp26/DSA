@@ -8,9 +8,9 @@ function selectionSort(arr){
             }
         }
         if (minIdx !== i) {
-            let temp = arr[i]; // temp = arr[0] = 8
-            arr[i] = arr[minIdx]; // arr[0] = arr[4] = -6
-            arr[minIdx] = temp; // arr[4] = temp = 8
+            let temp = arr[i];
+            arr[i] = arr[minIdx];   
+            arr[minIdx] = temp;
         }        
     }
     return arr;
