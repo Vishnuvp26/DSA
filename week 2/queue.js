@@ -1,45 +1,62 @@
 class Queue {
     constructor() {
         this.items = [];
-    }
+    };
     
     isEmpty() {
-        return this.items.length == 0
-    }
+        return this.items.length == 0;
+    };
     
-    enqueue(element){
-        this.items.push(element)
-    }   
+    enqueue(element) {
+        this.items.push(element);
+    }; 
     
-    dequeue(){
-        return this.items.shift()
-    }
+    dequeue() {
+        return this.items.shift();
+    };
     
-    peek(){
-        if(!this.isEmpty()){
-            return this.items[0]
+    peek() {
+        if (!this.isEmpty()) {
+            return this.items[0];
         }
-        return null
-    }
+        return null;
+    };
+
+    removeAt(index) {
+        if (index >= 0 && index < this.items.length) {
+            return this.items.splice(index, 1)[0];
+        }
+        return null;
+    };
     
-    size(){
+    size() {
         return this.items.length;
-    }
+    };
     
-    print(){
+    print() {
         console.log(this.items.toString());
-    }
-    
-};
+    };
+
+}
 
 const queue = new Queue();
 
-console.log('enqueue: added to tail')
-queue.enqueue(40)
-queue.enqueue(20)
-queue.enqueue(90)
-queue.print()
+console.log('enqueue: added to tail');
+queue.enqueue(40);
+queue.enqueue(20);
+queue.enqueue(90);
+queue.enqueue(50);
+queue.enqueue(10);
+queue.print();
+
 console.log('queue size: ' + queue.size());
 console.log('peek: ' + queue.peek());
 
 console.log('dequeue: remove from front: ' + queue.dequeue());
+queue.print();
+
+console.log('remove at index 1: ' + queue.removeAt(1));
+queue.print();
+
+console.log('queue size: ' + queue.size());
+console.log('peek: ' + queue.peek());
