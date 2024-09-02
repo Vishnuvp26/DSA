@@ -44,7 +44,7 @@ class Stack {
     
     size() {
         return this.size;
-    };
+    }
 }
 
 const stack = new Stack();

@@ -19,7 +19,7 @@ class Stack {
         if (this.isEmpty()) {
             return "stack is empty";
         }
-        return this.items.pop()
+        return this.items.pop(shift())
     };
 
     peek() {
