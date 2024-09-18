@@ -109,6 +109,21 @@ class BinarySearchTree {
             return this.max(root.right)
         }
     };
+
+    isValidBST(node = this.root, min = -Infinity, max = Infinity) {
+        if (node === null) {
+            return true;
+        }
+
+        if (node.value <= min || node.value >= max) {
+            return false;
+        }
+
+        return (
+            this.isValidBST(node.left, min, node.value) &&
+            this.isValidBST(node.right, node.value, max)
+        );
+    };
     
 };
 
@@ -139,5 +154,7 @@ bst.postOrder(bst.root)
 console.log('BFS:')
 bst.levelOrder()
 
-console.log('Maximum value : ' + bst.max(bst.root))
-console.log('Minimum value : ' + bst.min(bst.root))
+console.log('Maximum value : ' + bst.max(bst.root));
+console.log('Minimum value : ' + bst.min(bst.root));
+
+console.log('Tree is a valid BST?', bst.isValidBST());
