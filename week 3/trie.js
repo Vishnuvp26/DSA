@@ -8,7 +8,7 @@ class TrieNode {
 class Trie {
     constructor() {
         this.root = new TrieNode();
-    }
+    };
 
     // Insert a word into the Trie
     insert(word) {
@@ -20,7 +20,7 @@ class Trie {
             current = current.children[char];
         }
         current.isEndOfWord = true;
-    }
+    };
 
     // Search for a word in the Trie
     search(word) {
@@ -32,16 +32,16 @@ class Trie {
             current = current.children[char];
         }
         return current.isEndOfWord;
-    }
+    };
 
     // Check if any word starts with the given prefix
-    startsWith(prefix) {
+    prefix(word) {
         let current = this.root;
-        for (let char of prefix) {
-            if (!current.children[char]) {
+        for(let char of word) {
+            if(!current.children[char]){
                 return false;
             }
-            current = current.children[char];
+            current = current.children[char]
         }
         return true;
     }
@@ -54,5 +54,5 @@ trie.insert("app");
 console.log(trie.search("apple"));    // true
 console.log(trie.search("app"));      // true
 console.log(trie.search("appl"));     // false
-console.log(trie.startsWith("app"));  // true
-console.log(trie.startsWith("apx"));  // false
+console.log(trie.prefix("app"));  // true
+console.log(trie.prefix("apx"));  // false

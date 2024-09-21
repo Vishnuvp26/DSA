@@ -64,4 +64,4 @@ console.log(heap.removeMax());
 console.log('After removed...');
 console.log(heap.heap);
 
-console.log('Peek :',heap.peek());
+console.log('Peek :',heap.peek()); 
